@@ -6,13 +6,15 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <p>Описание анализатора..</p>
+    <p>Описание анализатора:
+    Данный анализатор предназначен для проверки
+    алгебраических формул со знаками + и *.
+    При этом знак умножения может быть опущен.
+    Пример:(a+b)(c+d)*fa</p>
     <textarea id="text" cols="40" rows="5"></textarea><br><br>
     <form>
-        <div onclick="parseThis()">Проверить выражение</div>
+        <button onclick="parseThis()">Проверить выражение</button>
     </form>
-    <p>Результат проверки:</p>
-    <p id="answer"></p>
     <script src="main.js"></script>
 </body>
 </html>

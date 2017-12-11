@@ -2,15 +2,14 @@ var text, ch, pos;
 
 function parseThis() {
     var TextBox = document.getElementById('text');
-    var AnswerBox = document.getElementById('answer');
     text = TextBox.value;
     ch = text[0];
     pos = 0;
-    if (parseF()) {
-        AnswerBox.innerHTML = "Выражение корректно!";
+    if (parseF() && BktBalance()) {
+        alert("Выражение корректно!");
     }
     else {
-        AnswerBox.innerHTML = "Неверное выражение...";
+        alert("Неверное выражение...");
     }
 }
 
@@ -83,4 +82,14 @@ function parseEnd() {
     if (ch == ")" || ch == undefined) return true;
     else if (isSign()) return parseStart();
     return false;
+}
+
+function BktBalance() {
+    var balance = 0;
+    for (var i = 0; i < text.length; i++) {
+        if (text[i] == "(") balance++;
+        if (text[i] == ")") balance--;
+    }
+    if (balance == 0) return true;
+    else return false;
 }
